@@ -1,7 +1,16 @@
 # mode: tabularx.sty
 # dani/2006-02-18
-\arraybackslash
-\begin{tabularx}{width}{preamble}
+
+#include:array
+
+#keyvals:\usepackage/tabularx#c
+infoshow
+debugshow
+#endkeyvals
+
+\arraybackslash#*
+\begin{tabularx}{width}{preamble}#\tabular
+\begin{tabularx}{width}[pos]{preamble}#\tabular
 \end{tabularx}
-\tabularxcolumn
-\tracingtabularx
+\tabularxcolumn#*
+\tracingtabularx#*

@@ -1,4 +1,4 @@
-# package chemformula v4.14a
+# package chemformula v4.17
 # typeset chemical compounds and reactions
 # Clemens Niederberger 01/07/2016
 # URL: http://www.ctan.org/pkg/chemformula
@@ -6,14 +6,11 @@
 # Contact: contact@mychemistry.eu
 # File written on 02/23/2016
 
-#include:expl3
-#include:xparse
 #include:l3keys2e
 #include:tikz
-#include:amstext
+#include:amsmath
 #include:xfrac
 #include:nicefrac
-#include:scrlfile
 #
 #
 # Chapter 3. Setup
@@ -38,7 +35,7 @@ frac-style=#math,xfrac,nicefrac
 frac-math-cmd={%<command sequence%>}
 stoich-space={%<skip%>}
 stoich-paren-parse=#true,false
-stoich-print={%<cs%>}
+stoich-format={%<code%>}
 #endkeyvals
 #keyvals:\setchemformula
 decimal-marker={%<marker%>}
@@ -46,7 +43,7 @@ frac-style=#math,xfrac,nicefrac
 frac-math-cmd={%<command sequence%>}
 stoich-space={%<skip%>}
 stoich-paren-parse=#true,false
-stoich-print={%<cs%>}
+stoich-format={%<code%>}
 #endkeyvals
 #keyvals:\chcpd
 decimal-marker={%<marker%>}
@@ -54,7 +51,7 @@ frac-style=#math,xfrac,nicefrac
 frac-math-cmd={%<command sequence%>}
 stoich-space={%<skip%>}
 stoich-paren-parse=#true,false
-stoich-print={%<cs%>}
+stoich-format={%<code%>}
 #endkeyvals
 #
 #
@@ -80,12 +77,12 @@ circletype=#chem,math
 # Section 6.5. Bonds
 #
 \bond{bond name}
-\NewChemBond{name}{code}#d
-\DeclareChemBond{name}{code}#*d
-\RenewChemBond{name}{code}#*d
-\ProvideChemBond{name}{code}#*d
-\NewChemBondAlias{new name}{old name}#d
-\DeclareChemBondAlias{new name}{old name}#*d
+\NewChemBond{name}{code}
+\DeclareChemBond{name}{code}#*
+\RenewChemBond{name}{code}#*
+\ProvideChemBond{name}{code}#*
+\NewChemBondAlias{new name}{old name}
+\DeclareChemBondAlias{new name}{old name}#*
 \ShowChemBond{name}#*
 #
 # Section 6.6. Customization
@@ -96,6 +93,7 @@ subscript-style=#text,math
 charge-hshift={%<dim%>}
 charge-vshift={%<dim%>}
 charge-style=#text,math
+math-scripts#true,false
 adduct-space={%<dim%>}
 adduct-penalty={%<num%>}
 bond-length={%<dim%>}
@@ -114,6 +112,7 @@ subscript-style=#text,math
 charge-hshift={%<dim%>}
 charge-vshift={%<dim%>}
 charge-style=#text,math
+math-scripts#true,false
 adduct-space={%<dim%>}
 adduct-penalty={%<num%>}
 bond-length={%<dim%>}
@@ -132,6 +131,7 @@ subscript-style=#text,math
 charge-hshift={%<dim%>}
 charge-vshift={%<dim%>}
 charge-style=#text,math
+math-scripts#true,false
 adduct-space={%<dim%>}
 adduct-penalty={%<num%>}
 bond-length={%<dim%>}
@@ -152,20 +152,20 @@ radical-space={%<dim%>}
 #
 # Section 6.8. Extend Compound Properties
 #
-\NewChemCompoundProperty{token}{replacement}#d
-\ProvideChemCompoundProperty{token}{replacement}#*d
-\RenewChemCompoundProperty{token}{replacement}#*d
-\DeclareChemCompoundProperty{token}{replacement}#*d
+\NewChemCompoundProperty{token}{replacement}
+\ProvideChemCompoundProperty{token}{replacement}#*
+\RenewChemCompoundProperty{token}{replacement}#*
+\DeclareChemCompoundProperty{token}{replacement}#*
 \RemoveChemCompoundProperty{token}#*
 #
 #
 # Chapter 7. Special Input Types
 #
 #
-\NewChemAdditionSymbol{name}{input}{output}#d
-\ProvideChemAdditionSymbol{name}{input}{output}#*d
-\RenewChemAdditionSymbol{name}{input}{output}#*d
-\DeclareChemAdditionSymbol{name}{input}{output}#*d
+\NewChemAdditionSymbol{name}{input}{output}
+\ProvideChemAdditionSymbol{name}{input}{output}#*
+\RenewChemAdditionSymbol{name}{input}{output}#*
+\DeclareChemAdditionSymbol{name}{input}{output}#*
 #keyvals:\ch
 plus-space={%<skip%>}
 plus-penalty={%<num%>}
@@ -190,10 +190,10 @@ minus-space={%<skip%>}
 minus-penalty={%<num%>}
 minus-output-symbol={%<code%>}
 #endkeyvals
-\NewChemSymbol{input}{output}#d
-\ProvideChemSymbol{input}{output}#*d
-\RenewChemSymbol{input}{output}#*d
-\DeclareChemSymbol{input}{output}#*d
+\NewChemSymbol{input}{output}
+\ProvideChemSymbol{input}{output}#*
+\RenewChemSymbol{input}{output}#*
+\DeclareChemSymbol{input}{output}#*
 #
 #
 # Chapter 8. Escaped Input
@@ -253,10 +253,10 @@ arrow-style={%<TikZ%>}
 #
 # Section 9.4. Modify Arrow Types
 #
-\NewChemArrow{type}{TikZ}#d
-\ProvideChemArrow{type}{TikZ}#*d
-\DeclareChemArrow{type}{TikZ}#*d
-\RenewChemArrow{type}{TikZ}#*d
+\NewChemArrow{type}{TikZ}
+\ProvideChemArrow{type}{TikZ}#*
+\DeclareChemArrow{type}{TikZ}#*
+\RenewChemArrow{type}{TikZ}#*
 \ShowChemArrow{type}#*
 #
 # Section 9.5. Standalone Arrows
@@ -350,7 +350,7 @@ lewis-offset={%<dim%>}
 #endkeyvals
 #
 #
-# Chapter 15. Kroger-Vink Notation
+# Chapter 15. Kröger-Vink Notation
 #
 #
 #keyvals:\ch

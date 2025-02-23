@@ -2,12 +2,12 @@
 # Edson 20-10-2010
 
 \bibliographystyle{style}
-\cite{rotulo}
-\citeonline{rotulo}
+\cite{bibid}#c
+\citeonline{bibid}#c
 
-\citeyear{rotulo}
-\citeauthor{rotulo}
-\citeauthoronline{rotulo}
+\citeyear{bibid}#c
+\citeauthor{bibid}#c
+\citeauthoronline{bibid}#c
 
 \leftovercite
 \rightovercite

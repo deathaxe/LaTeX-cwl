@@ -1,13 +1,16 @@
-# ctan package: ifplatform
-# tbraun, 11 June 2012
-\ifshellescape
-\ifwindows
-\ifmacosx
-\iflinux
-\ifcygwin
-\windowsname
-\notwindowsname
+#include:catchfile
+#include:ifluatex
+#include:pdftexcmds
+#include:shellesc
+\cygwinname
 \linuxname
 \macosxname
-\cygwinname
+\notwindowsname
 \unknownplatform
+\windowsname
+\ifshellescape
+\ifwindows
+\iflinux
+\ifmacosx
+\ifcygwin
+\platformname

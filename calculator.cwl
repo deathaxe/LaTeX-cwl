@@ -3,7 +3,9 @@
 #
 # Created by @ppizarror
 # https://github.com/ppizarror/calculator-cwl
-# date: Sat 27 Apr
+# date: Sun 28 Apr
+
+# Matthew Bertucci updated 3/31/2022 for v2.0
 
 # --------------------------------------------
 # 1. Predefined numbers
@@ -34,114 +36,121 @@
 # --------------------------------------------
 
 # Assignments and comparisons
-\COPY{num}{cmd}
-\MAX{num1}{num2}{cmd}
-\MIN{num1}{num2}{cmd}
+\COPY{num}{cmd}#d
+\GLOBALCOPY{num}{cmd}#*d
+\MAX{num1}{num2}{cmd}#d
+\MIN{num1}{num2}{cmd}#d
 
 # Real arithmetic
-\ADD{num1}{num2}{cmd}
-\SUBTRACT{num1}{num2}{cmd}
-\MULTIPLY{num1}{num2}{cmd}
-\DIVIDE{num1}{num2}{cmd}
+\ADD{num1}{num2}{cmd}#d
+\SUBTRACT{num1}{num2}{cmd}#d
+\MULTIPLY{num1}{num2}{cmd}#d
+\DIVIDE{num1}{num2}{cmd}#d
 
-\SQUARE{num}{cmd}
-\CUBE{num}{cmd}
-\POWER{num}{exp}{cmd}
+\SQUARE{num}{cmd}#d
+\CUBE{num}{cmd}#d
+\POWER{num}{exp}{cmd}#d
 
-\ABSVALUE{num}{cmd}
-\INTEGERPART{num}{cmd}
-\FLOOR{num}{cmd}
-\FRACTIONALPART{num}{cmd}
+\ABSVALUE{num}{cmd}#d
+\INTEGERPART{num}{cmd}#d
+\FLOOR{num}{cmd}#d
+\FRACTIONALPART{num}{cmd}#d
 
-\TRUNCATE[n]{num}{cmd}
-\ROUND[n]{num}{cmd}
+\TRUNCATE{num}{cmd}#d
+\TRUNCATE[n]{num}{cmd}#d
+\ROUND{num}{cmd}#d
+\ROUND[n]{num}{cmd}#d
 
 # Integers
-\INTEGERDIVISION{num1}{num2}{cmd1}{cmd2}
-\INTEGERQUOTIENT{num1}{num2}{cmd}
-\MODULO{num1}{num2}{cmd}
+\INTEGERDIVISION{num1}{num2}{cmd1%cmd}{cmd2%cmd}#d
+\INTEGERQUOTIENT{num1}{num2}{cmd}#d
+\MODULO{num1}{num2}{cmd}#d
 
-\GCD{num1}{num2}{cmd}
-\LCM{num1}{num2}{cmd}
+\GCD{num1}{num2}{cmd}#d
+\LCM{num1}{num2}{cmd}#d
 
-\FRACTIONSIMPLIFY{num1}{num2}{cmd1}{cmd2}
+\FRACTIONSIMPLIFY{num1}{num2}{cmd1%cmd}{cmd2%cmd}#d
 
 # Elementary functions
-\SQUAREROOT{num}{cmd}
+\SQUAREROOT{num}{cmd}#d
+\SQRT{num}{cmd}#*d
 
-\EXP{num}{cmd}
-\EXP[num1]{num2}{cmd}
-\LOG{num}{cmd}
-\LOG[num1]{num2}{cmd}
+\EXP{num}{cmd}#d
+\EXP[num1]{num2}{cmd}#d
+\LOG{num}{cmd}#d
+\LOG[num1]{num2}{cmd}#d
 
-\SIN{num}{cmd}
-\COS{num}{cmd}
-\TAN{num}{cmd}
-\COT{num}{cmd}
-\DEGREESSIN{num}{cmd}
-\DEGREESCOS{num}{cmd}
-\DEGREESTAN{num}{cmd}
-\DEGREESCOT{num}{cmd}
-\DEGREESSIN[degrees]{num}{cmd}
-\DEGREESCOS[degrees]{num}{cmd}
-\DEGREESTAN[degrees]{num}{cmd}
-\DEGREESCOT[degrees]{num}{cmd}
-\DEGtoRAD{num}{cmd}
-\RADtoDEG{num}{cmd}
-\REDUCERADIANSANGLE{num}{cmd}
-\REDUCEDEGREESANGLE{num}{cmd}
+\SIN{num}{cmd}#d
+\COS{num}{cmd}#d
+\TAN{num}{cmd}#d
+\COT{num}{cmd}#d
+\DEGREESSIN{num}{cmd}#d
+\DEGREESCOS{num}{cmd}#d
+\DEGREESTAN{num}{cmd}#d
+\DEGREESCOT{num}{cmd}#d
+\DEGREESSIN[degrees]{num}{cmd}#d
+\DEGREESCOS[degrees]{num}{cmd}#d
+\DEGREESTAN[degrees]{num}{cmd}#d
+\DEGREESCOT[degrees]{num}{cmd}#d
+\DEGtoRAD{num}{cmd}#d
+\RADtoDEG{num}{cmd}#d
+\REDUCERADIANSANGLE{num}{cmd}#d
+\REDUCEDEGREESANGLE{num}{cmd}#d
 
-\SINH{num}{cmd}
-\COSH{num}{cmd}
-\TANH{num}{cmd}
-\COTH{num}{cmd}
+\SINH{num}{cmd}#d
+\COSH{num}{cmd}#d
+\TANH{num}{cmd}#d
+\COTH{num}{cmd}#d
 
-\ARCSIN{num}{cmd}
-\ARCCOS{num}{cmd}
-\ARCTAN{num}{cmd}
-\ARCCOT{num}{cmd}
+\ARCSIN{num}{cmd}#d
+\ARCCOS{num}{cmd}#d
+\ARCTAN{num}{cmd}#d
+\ARCCOT{num}{cmd}#d
 
-\ARSINH{num}{cmd}
-\ARCOSH{num}{cmd}
-\ARTANH{num}{cmd}
-\ARCOTH{num}{cmd}
+\ARSINH{num}{cmd}#d
+\ARCOSH{num}{cmd}#d
+\ARTANH{num}{cmd}#d
+\ARCOTH{num}{cmd}#d
 
 # --------------------------------------------
 # 3. Operations with lengths
 # --------------------------------------------
-
-\LENGTHDIVIDE{length1}{length2}{cmd}
-\LENGTHADD{length1}{length2}{cmd}
-\LENGTHSUBTRACT{length1}{length2}{cmd}
+\LENGTHDIVIDE{length1}{length2}{cmd}#d
+\LENGTHADD{length1}{length2}{cmd}#d
+\LENGTHSUBTRACT{length1}{length2}{cmd}#d
 
 # --------------------------------------------
 # 4. Matrix arithmetic
 # --------------------------------------------
 
 # Vector Operations
-
-\VECTORCOPY(x,y,z)(cmd1,cmd2,cmd3)
-\VECTORADD(x1,y1,z1)(x2,y2,z2)(cmd1,cmd2,cmd3)
-\VECTORSUB(x1,y1,z1)(x2,y2,z2)(cmd1,cmd2,cmd3)
-\SCALARVECTORPRODUCT{num}(x,y,z)(cmd1,cmd2,cmd3)
-\SCALARPRODUCT(x1,y1,z1)(x2,y2,z2){cmd1,cmd2,cmd3}
-\DOTPRODUCT(x1,y1,z1)(x2,y2,z2){cmd1,cmd2,cmd3}
-\VECTORNORM(x,y,z){cmd}
-\VECTORPRODUCT(x1,y1,z1)(x2,y2,z2)(cmd1,cmd2,cmd3)
-\CROSSPRODUCT(x1,y1,z1)(x2,y2,z2)(cmd1,cmd2,cmd3)
-\UNITVECTOR(x,y,z)(cmd1,cmd2,cmd3)
-\VECTORABSVALUE(x,y,z)(cmd1,cmd2,cmd3)
-\TWOVECTORSANGLE(x1,y1,z1)(x2,y2,z2){cmd}
+\VECTORSIZE(x,y,z){cmd}#*d
+\VECTORCOPY(x,y,z)(cmd1,cmd2,cmd3%cmd)#d
+\VECTORGLOBALCOPY(x,y,z)(cmd1,cmd2,cmd3%cmd)#*d
+\VECTORADD(x1,y1,z1)(x2,y2,z2)(cmd1,cmd2,cmd3%cmd)#d
+\VECTORSUB(x1,y1,z1)(x2,y2,z2)(cmd1,cmd2,cmd3%cmd)#d
+\SCALARVECTORPRODUCT{num}(x,y,z)(cmd1,cmd2,cmd3%cmd)#d
+\SCALARPRODUCT(x1,y1,z1)(x2,y2,z2){cmd}#d
+\DOTPRODUCT(x1,y1,z1)(x2,y2,z2){cmd}#d
+\VECTORNORM(x,y,z){cmd}#d
+\VECTORPRODUCT(x1,y1,z1)(x2,y2,z2)(cmd1,cmd2,cmd3%cmd)#d
+\CROSSPRODUCT(x1,y1,z1)(x2,y2,z2)(cmd1,cmd2,cmd3%cmd)#d
+\UNITVECTOR(x,y,z)(cmd1,cmd2,cmd3%cmd)#d
+\VECTORABSVALUE(x,y,z)(cmd1,cmd2,cmd3%cmd)#d
+\TWOVECTORSANGLE(x1,y1,z1)(x2,y2,z2){cmd}#d
 
 # Matrix Operations
-\MATRIXCOPY(a11...a33)(cmd11...cmd33)
-\TRANSPOSEMATRIX(a11...a33)(cmd11...cmd33)
-\MATRIXADD(a11...a33)(b11...b33)(cmd11...cmd33)
-\MATRIXSUB(a11...a33)(b11...b33)(cmd11...cmd33)
-\SCALARMATRIXPRODUCT{num}(a11...a33)(cmd11...cmd33)
-\MATRIXVECTORPRODUCT(a11...a33)(x,y,z)(cmd1,cmd2,cmd3)
-\MATRIXPRODUCT(a11...a33)(b11...b33)(cmd11...cmd33)
-\DETERMINANT{a11...a33){cmd}
-\INVERSEMATRIX(a11...a33)(cmd11...cmd33)
-\MATRIXABSVALUE(a11...a33)(cmd11...cmd33)
-\SOLVELINEARSYSTEM(a11...a33)(b1,b2,b3)(cmd1,cmd2,cmd3)
+\MATRIXSIZE(a11...a33){cmd}#*d
+\MATRIXCOPY(a11...a33)(cmd11...cmd33%cmd)#d
+\MATRIXGLOBALCOPY(a11...a33)(cmd11...cmd33%cmd)#*d
+\TRANSPOSEMATRIX(a11...a33)(cmd11...cmd33%cmd)#d
+\MATRIXADD(a11...a33)(b11...b33)(cmd11...cmd33%cmd)#d
+\MATRIXSUB(a11...a33)(b11...b33)(cmd11...cmd33%cmd)#d
+\SCALARMATRIXPRODUCT{num}(a11...a33)(cmd11...cmd33%cmd)#d
+\MATRIXVECTORPRODUCT(a11...a33)(x,y,z)(cmd1,cmd2,cmd3%cmd)#d
+\VECTORMATRIXPRODUCT(x,y,z)(a11...a33)(cmd1,cmd2,cmd3%cmd)#*d
+\MATRIXPRODUCT(a11...a33)(b11...b33)(cmd11...cmd33%cmd)#d
+\DETERMINANT{a11...a33){cmd}#d
+\INVERSEMATRIX(a11...a33)(cmd11...cmd33%cmd)#d
+\MATRIXABSVALUE(a11...a33)(cmd11...cmd33%cmd)#d
+\SOLVELINEARSYSTEM(a11...a33)(b1,b2,b3)(cmd1,cmd2,cmd3%cmd)#d

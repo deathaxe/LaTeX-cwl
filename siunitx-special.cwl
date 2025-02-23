@@ -35,5 +35,3 @@
 # Astronomy (astro)
 \parsec
 \lightyear
-# Geophysics (geophys)
-\gon

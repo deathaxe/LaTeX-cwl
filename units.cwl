@@ -3,9 +3,17 @@
 # http://www.ctan.org/tex-archive/macros/latex/contrib/units/
 # Version: 1998-08-04
 
+#include:ifthen
+#include:nicefrac
+
+#keyvals:\usepackage/units#c
+tight
+loose
+nice
+ugly
+#endkeyvals
+
 \unit[value]{dimension}
 \unit{dimension}
-\unitfrac[value]{numerator}{denominator}
-\unitfrac{numerator}{denominator}
-\nicefrac[fontcmd]{numerator}{denominator}
-\nicefrac{numerator}{denominator}
+\unitfrac[%<value%:translatable%>]{%<num%:translatable%>}{%<den%:translatable%>}
+\unitfrac{%<num%:translatable%>}{%<den%:translatable%>}

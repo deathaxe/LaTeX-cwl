@@ -1,9 +1,8 @@
-# watermark
-# Chris 20/3/2013
+# watermark package
+# Matthew Bertucci 1/22/2022 for v1.1
 
 \watermark{body}
 \leftwatermark{body}
 \rightwatermark{body}
 \thiswatermark{body}
-
-\thispageheading
+\thispageheading{heading%text}

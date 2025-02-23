@@ -1,7 +1,25 @@
 # tbraun 8.02.2008
 # ctan svninfo package
 
-\svnInfo
+#keyvals:\usepackage/svninfo#c
+svk
+today
+notoday
+revrange
+fancyhdr
+nofancy
+scrpage
+eso-foot
+margin
+long
+short
+final
+draft
+#endkeyvals
+
+\svnInfo $Id$ %|
+\svnInfo $Id:$ %|
+\svnInfo $Id: %<file rev YYYY-MM-DD hh:mm:ss owner%> $
 \svnInfoFile
 \svnInfoRevision
 \svnInfoMinRevision
@@ -16,4 +34,5 @@
 \svnId
 \svnToday
 \svnInfoMaxToday
-# \svnKeyword $<Keyword>$ # not supported by kile
+\svnKeyword $%<Keyword%>:$
+\svnKeyword $%<Keyword%>: %<value%> $

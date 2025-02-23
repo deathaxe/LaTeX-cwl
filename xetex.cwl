@@ -1,16 +1,23 @@
 # from XeTeX reference guide (Jan 3, 2011)
+# updated 2023/08/27 for refguide 2023/08/24
 
-# font primitives
+# Font primitives
+\XeTeXtracingfonts#*
 \XeTeXfonttype#*
+\XeTeXfirstfontchar#*
+\XeTeXlastfontchar#*
 \XeTeXglyph#*
-\XeTeXcountglyph#*
+\XeTeXcountglyphs#*
+\XeTeXglyphname#*
 \XeTeXglyphindex#*
 \XeTeXcharglyph#*
 \XeTeXglyphbounds#*
 \XeTeXuseglyphmetrics#*
+\XeTeXgenerateactualtext#*
 
 # OpenType fonts
 \XeTeXOTcountscripts#*
+\XeTeXOTscripttag#*
 \XeTeXOTcountlanguages#*
 \XeTeXOTlanguagetag#*
 \XeTeXOTcountfeatures#*
@@ -35,53 +42,106 @@
 \XeTeXvariationdefault#*
 \XeTeXfindvariationbyname#*
 
+# Contextual adjustment space handling
+\XeTeXinterwordspaceshaping#*
+
 # Math fonts
-\XeTeXmathcode#*
-\XeTeXmathcodenum#*
-\XeTeXmathchar#*
-\XeTeXmathcharnum#*
-\XeTeXmathchardef#*
-\XeTeXmathcharnumdef#*
-\XeTeXdelcode#*
-\XeTeXdelcodenum#*
-\XeTeXdelimiter#*
-\XeTeXmathaccent#*
-\XeTeXradical#*
+\Umathcode#*
+\Umathcodenum#*
+\Umathchar#*
+\Umathcharnum#*
+\Umathchardef#*
+\Umathchardef{cmd}#Sd
+\Umathcharnumdef#*
+\Umathcharnumdef{cmd}#Sd
+\Udelcode#*
+\Udelcodenum#*
+\Udelimiter#*
+\Umathaccent#*
+\Uradical#*
+
+# Characters
+\Uchar#*
+\Ucharcat#*
 
 # Character classes
 \XeTeXinterchartokenstate#*
+\newXeTeXintercharclass#*
+\newXeTeXintercharclass{cmd}#Sd
 \XeTeXcharclass#*
 \XeTeXinterchartoks#*
 
-# Encoding
+# Encodings
 \XeTeXinputnormalization#*
 \XeTeXinputencoding#*
 \XeTeXdefaultencoding#*
 
-# Line Breaking
+# Line breaking
 \XeTeXdashbreakstate#*
 \XeTeXlinebreaklocale#*
 \XeTeXlinebreakskip#*
 \XeTeXlinebreakpenalty#*
 \XeTeXupwardsmode#*
+\XeTeXhyphenatablelength#*
 
-#Graphics
+# Graphics
 \XeTeXpicfile#*
 \XeTeXpdffile#*
 \XeTeXpdfpagecount#*
 
-# Cross-compatibility with pdfTeX and/or LuaTeX
+# Character protrusion
+\XeTeXprotrudechars#*
+
+# Cross-compatibility with other TeX engines
 \pdfpageheight#*
 \pdfpagewidth#*
 \pdfsavepos#*
 \pdflastxpos#*
 \pdflastypos#*
-\ifprimitive
-\primitive
-\shellescape
-\strcmp
+
+# Programming
+\expanded#*
+\ifincsname#*
+\ifprimitive#*
+\primitive#*
+\shellescape#*
+\strcmp{arg1}{arg2}#*
+
+# Randomness
+\normaldeviate#*
+\randomseed#*
+\setrandomseed#*
+\uniformdeviate#*
+
+# Timing
+\elapsedtime#*
+\resettimer#*
+
+# File handling
+\creationdate#*
+\filedump#*
+\filemoddate{file}#*
+\filesize{file}#*
+\mdfivesum#*
+
+# Fonts
+\pdfmapfile{file}#*
+\pdfmapline{map spec}#*
 \suppressfontnotfounderror#*
 
-# Misc.
+# Engine version
 \XeTeXversion#*
 \XeTeXrevision#*
+
+# deprecated math font commands
+\XeTeXmathcode#S
+\XeTeXmathcodenum#S
+\XeTeXmathchar#S
+\XeTeXmathcharnum#S
+\XeTeXmathchardef#S
+\XeTeXmathcharnumdef#S
+\XeTeXdelcode#S
+\XeTeXdelcodenum#S
+\XeTeXdelimiter#S
+\XeTeXmathaccent#S
+\XeTeXradical#S

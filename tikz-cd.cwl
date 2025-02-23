@@ -1,47 +1,7 @@
-#include: tikz
-\begin{tikzcd}#\math,array
-\end{tikzcd}
-\arrow[keyvals]
-#keyvals:\arrow#c
-hook
-to head
-rightarrow
-leftarrow
-leftrightarrow
-Rightarrow
-Leftarrow
-Leftrightarrow
-maps to
-mapsto
-mapsfrom
-Mapsto
-Mapsfrom
-hook
-hook'
-hookrightarrow
-hookleftarrow
-dashed
-dashrightarrow
-dashleftarrow
-tail
-rightarrowtail
-leftarrowtail
-squiggly
-rightsquigarrow
-leftsquigarrow
-leftrightsquigarrow
-two heads
-twoheadrightarrow
-twoheadleftarrow
-no head
-no tail
-dash
-equal
-harpoon
-harpoon'
-rightharpoonup
-rightharpoondown
-leftharpoonup
-leftharpoondown
-crossing over
-#endkeyvals
+# tikz-cd package
+# Fernando Muro, 5 Nov 2017
+# muzimuzhi, 23 Jan 2020, tikz-cd v0.9f
+# Matthew Bertucci, 7/29/2021, v1.0
+
+#include:tikz
+#include:tikzlibrarycd

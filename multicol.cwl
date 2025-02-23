@@ -1,15 +1,40 @@
 # mode: multicol.sty
 # dani/2006-02-18
-\begin{multicols}{n}
+# updated 2023/06/08 for v1.9f
+
+#keyvals:\usepackage/multicol#c
+errorshow
+infoshow
+balancingshow
+markshow
+debugshow
+grid
+colaction
+#endkeyvals
+
 \begin{multicols*}{n}
-\begin{multicols}{n}[preface]
 \begin{multicols*}{n}[preface]
-\begin{multicols}{n}[preface][skip]
 \begin{multicols*}{n}[preface][skip]
+\begin{multicols}{n}
+\begin{multicols}{n}[preface]
+\begin{multicols}{n}[preface][skip]
 \columnbreak
-\end{multicols}
+\columnseprulecolor#*
+\docolaction{first}{middle}{last}
 \end{multicols*}
-\multicolsep
-\multicoltolerance
-\postmulticols
-\premulticols
+\end{multicols}
+\flushcolumns
+\LRmulticolcolumns#*
+\maxbalancingoverflow#*
+\multicolbaselineskip#*
+\multicolmindepthstring#*
+\multicolpretolerance#*
+\multicolsep#*
+\multicoltolerance#*
+\newcolumn
+\postmulticols#*
+\premulticols#*
+\raggedcolumns
+\RLmulticolcolumns#*
+\setemergencystretch{num of cols}{hsize}#*
+\vfilmaxdepth#*

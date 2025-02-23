@@ -1,18 +1,20 @@
-# endnotes.sty,
-# Chris 19/08/2013
+# endnotes package
+# Matthew Bertucci 2022/05/02
 
 \endnote{text}
 \endnote[number]{text}
+\endnotemark
 \endnotemark[number]
-
 \endnotetext{text}
 \endnotetext[number]{text}
-
 \addtoendnotes{text}
-
 \enotesize
-\makeenmark
-\theendnote
-\theenmark
-
-\notesname
+\theendnotes
+\theendnote#*
+\theHendnote#*
+\theenmark#*
+\makeenmark#*
+\enoteformat#*
+\enoteheading#*
+\notesname#*
+\endnotesep#*

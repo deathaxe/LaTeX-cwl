@@ -1,15 +1,28 @@
 # mode: scraddr.sty
 # dani/2006-02-21
-\addrentry{last}{first}{address}{tel}{f1}{f2}{f3}{f4}{comment}{short}
-\Address
-\adrentry{last}{first}{address}{tel}{f1}{f2}{comment}{short}
-\Comment
-\FirstName
-\FreeI
-\FreeII
-\FreeIII
-\FreeIV
+# Matthew Bertucci updated 2022/05/17 for v3.36
+
+#include:scrlogo
+
+#keyvals:\usepackage/scraddr#c
+adrFreeIVempty
+adrFreeIVshow
+adrFreeIVwarn
+adrFreeIVstop
+#endkeyvals
+
 \InputAddressFile{file}
-\LastName
-\Name
-\Telephone
+\adrentry{LastName}{FirstName}{Address}{Phone}{F1}{F2}{Comment}{Key}
+\addrentry{LastName}{FirstName}{Address}{Phone}{F1}{F2}{F3}{F4}{Key}
+\addrchar{initial}
+\adrchar{initial}
+\Name{Key}
+\FirstName{Key}
+\LastName{Key}
+\Address{Key}
+\Telephone{Key}
+\FreeI{Key}
+\FreeII{Key}
+\Comment{Key}
+\FreeIII{Key}
+\FreeIV{Key}

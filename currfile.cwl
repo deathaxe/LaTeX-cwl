@@ -1,67 +1,67 @@
-# currfile.sty
-# Chris 28/08/2013
+# currfile package
+# Matthew Bertucci 10/6/2021 for v0.7d
 
-\currfiledir
-\currfilebase
-\currfileext
-\currfilename
-\currfilepath
+#include:kvoptions
+#include:filehook
 
-\ifcurrfiledir{text}{true}{false}
-\ifcurrfilebase{text}{true}{false}
-\ifcurrfileext{text}{true}{false}
-\ifcurrfilename{text}{true}{false}
-\ifcurrfilepath{text}{true}{false}
+#keyvals:\usepackage/currfile#c
+mainext=%<extension%>
+maindir=%<directory%>
+fink#true,false
+abspath#true,false
+realmainfile#true,false
+#endkeyvals
 
-\ifcurrfile{currfile macro or text}{text}{true}{false}
+#ifOption:abspath
+#include:currfile-abspath
+#endif
+#ifOption:abspath=true
+#include:currfile-abspath
+#endif
 
-# Additional currfile macros for absolute dir and path
+#ifOption:realmainfile
+#include:currfile-abspath
+#endif
+#ifOption:realmainfile=true
+#include:currfile-abspath
+#endif
 
-\currfileabsdir
-\currfileabspath
+\currfiledir#*
+\currfilebase#*
+\currfileext#*
+\currfilename#*
+\currfilepath#*
+\ifcurrfiledir{text}{true}{false}#*
+\ifcurrfilebase{text}{true}{false}#*
+\ifcurrfileext{text}{true}{false}#*
+\ifcurrfilename{text}{true}{false}#*
+\ifcurrfilepath{text}{true}{false}#*
+\ifcurrfile{macro or text}{text}{true}{false}#*
 
-\ifcurrfileabsdir{text}{true}{false}
-\ifcurrfileabspath{text}{true}{false}
+#ifOption:parent
+\parentfiledir#*
+\parentfilebase#*
+\parentfileext#*
+\parentfilename#*
+\parentfilepath#*
+\parentfileabsdir#*
+\parentfileabspath#*
+#endif
 
-# Stand-alone usage of currfile-abspath
-
-\getpwd
-\thepwd
-
-\getmainfile
-\themainfile
-
-\getabspath{file name}
-\getabspath{dir/file name}
-\theabspath
-\theabsdir
-
-# Parent filemacros
-
-\parentfiledir
-\parentfilebase
-\parentfileext
-\parentfilename
-\parentfilepath
-
-\parentfileabsdir
-\parentfileabspath
-
-# Access all parent files
-
-\currfilegetparents
-
-\parentfilediri
-\parentfiledirii
-\parentfilebasei
-\parentfilebaseii
-\parentfileexti
-\parentfileextii
-\parentfilenamei
-\parentfilenameii
-\parentfilepathi
-\parentfilepathii
-\parentfileabsdiri
-\parentfileabsdirii
-\parentfileabspathi
-\parentfileabspathii
+#ifOption:parents
+\currfilegetparents#*
+\parentfilediri#*
+\parentfiledirii#*
+\parentfilebasei#*
+\parentfilebaseii#*
+\parentfileexti#*
+\parentfileextii#*
+\parentfilenamei#*
+\parentfilenameii#*
+\parentfilepathi#*
+\parentfilepathii#*
+\parentfileabsdiri#*
+\parentfileabsdirii#*
+\parentfileabspathi#*
+\parentfileabspathii#*
+#endif

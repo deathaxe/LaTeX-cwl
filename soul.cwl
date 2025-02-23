@@ -1,26 +1,39 @@
-# soul package from CTAN
-# tbraun; 25.04.2011
+# soul package
+# Matthew Bertucci 9/21/2021 for v2.4
 
-\so{text to add letter spacing}
-\caps{small caps text}
-\ul{text to underline}
-\st{text to strikeout}
-\hl{text to highlight}
+#keyvals:\usepackage/soul#c
+capsdefault
+#endkeyvals
 
-\soulaccent{accent}
-\soulregister{cmd}{text}
-\sloppyword{text}
-\sodef{cmd}{font}{inner letter space}{inner space}{outer space}
-\resetso
-\capsdef{cmd}{inner letter space}{inner space}{outer space}
-\capssave{name}
-\capsselect{name}
-\capsreset
-\setul{underline depth}{underline thickness}
-\resetul
-\setuldepth{characters}
-\setuloverlap{underline overlap}
-\setulcolor{named color}
-\setstcolor{named color}
-\sethlcolor{named color}
-\soulomit{text to ignore}
+\so{text}
+\textso{text}#*
+\<#S
+\>#S
+\caps{text}
+\textcaps{text}#*
+\capsfont#*
+\ul{text}
+\textul{text}#*
+\st{text}
+\textst{text}#*
+\hl{text}
+\texthl{text}#*
+\soulaccent{cmd}#*d
+\soulregister{cmd}{args}#*
+\soulfont{cmd}{args}#S
+\soulomit{text}
+\sloppyword{text}#*
+\sodef{cmd}{font}{innerletter%l}{inner%l}{outer%l}#*d
+\resetso#*
+\capsdef{enc/fam/series/shape/size}{optcmd}{innerletter%l}{inner%l}{outer%l}#*
+\capssave{name}#*
+\capsselect{name}#*
+\capsreset#*
+\capsdefault#*
+\setul{ul-depth%l}{ul-thickness%l}
+\resetul#*
+\setuldepth{string}
+\setuloverlap{dimen%l}
+\setulcolor{color}
+\setstcolor{color}
+\sethlcolor{color}

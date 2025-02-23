@@ -1,14 +1,30 @@
 # bm, ctan
 # tbraun 6/11/2008
+# jdshor 4/15/2017
 
-\bm{math expression}
-\hm{math expression}
+#keyvals:\usepackage/bm#c
+nopmb
+warn
+info
+silent
+#endkeyvals
 
-\boldsymbol{math expression}
-\heavysymbol{math expression}
+\bm{math expression}#m
+\hm{math expression}#m
 
-\DeclareBoldMathCommand[math version]{cmd}{math expression}
-\DeclareBoldMathCommand{cmd}{math expression}
+\bmdefine{cmd}{def}#d
+\hmdefine{cmd}{def}#d
 
-\bmmax{number}
-\hmmax{number}
+\boldsymbol{math expression}#*m
+\heavysymbol{math expression}#*m
+
+\DeclareBoldMathCommand[math version%keyvals]{cmd}{def}#d
+\DeclareBoldMathCommand{cmd}{def}#d
+
+#keyvals:\DeclareBoldMathCommand#c
+bold
+heavy
+#endkeyvals
+
+\bmmax
+\hmmax

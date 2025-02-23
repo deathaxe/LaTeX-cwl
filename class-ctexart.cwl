@@ -1,38 +1,46 @@
 # ctexart class
-# zepinglee 2021-02-02
+# Matthew Bertucci 4/24/2022 for v2.5.8
 
-## Sec. 3
-\ctexset{options}
+# does not actually load ctex, but defines all the same commands
+#include:ctex
 
-## Sec. 4.3
-\songti
-\heiti
-\fangsong
-\kaishu
-\lishu
-\youyuan
-\yahei
-\pingfang
+#keyvals:\documentclass/ctexart#c
+GBK
+UTF8
+zhmap=#true,false,zhmCJK
+zihao=#-4,5,false
+heading#true,false
+sub3section
+sub4section
+scheme=#chinese,plain
+linespread=%<number%>
+fontset=#adobe,fandol,founder,mac,macnew,macold,ubuntu,windows,none
+punct=#quanjiao,banjiao,kaiming,CCT,plain
+space=#true,false,auto
+autoindent=
+# options passed to article class
+a4paper
+a5paper
+b5paper
+letterpaper
+legalpaper
+executivepaper
+landscape
+10pt
+11pt
+12pt
+oneside
+twoside
+draft
+final
+titlepage
+notitlepage
+onecolumn
+twocolumn
+leqno
+fleqn
+openbib
+#endkeyvals
 
-## Sec. 7.5
-\CTEXthepart
-\CTEXthethechapter
-\CTEXthesection
-\CTEXthesubsection
-\CTEXthesubsubsection
-\CTEXtheparagraph
-\CTEXthesubparagraph
-
-\CTEXifnmae{contents with name}{contents with name}
-
-## Sec. 8.1
-\zihao{number}
-\ziju{factor}
-\ccwd
-
-## Sec. 8.2
-\chinese{counter}
-\CTEXnumber{cmd}{number}
-\CTEXdigits{cmd}{number}
-
-\CTeX
+\partmark{code}#*
+\CTEXnumberline{number}#*

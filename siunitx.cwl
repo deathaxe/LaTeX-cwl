@@ -1,52 +1,57 @@
-# siunitx package
-# get it from http://tug.ctan.org/cgi-bin/ctanPackageInformation.py?id=siunitx
 # dbitouze/2015-03-20 for siunitx v2.6e
 # thatlittleboy/2018-06-18
-# kiriya-aoi/2021-06-07 for siunitx v3.0
+# r0the/2021-10-07 for siunitx v3
+# Matthew Bertucci 2024-12-06 for v3.4.0
+
+#include:translations
+#include:amstext
+#include:color
+#include:array
+
+#ifOption:use-xspace
+#include:xspace
+#endif
 
 \A#*
 \ampere
 \amu#*
-\ang[%<options%>]{%<degrees;minutes;seconds%>}
-\ang[%<options%>]{%<number%>}
-\ang{%<degrees;minutes;seconds%>}
-\ang{%<number%>}
+\ang[%<options%>]{%<angle%>}
+\ang{%<angle%>}
 \arcminute
 \arcsecond
 \as#*
 \astronomicalunit
-\atto#*
+\atto
 \becquerel
 \bel
 \bit
 \byte
+\C#*
 \candela
-\celsius
 \centi
-\complexnum[%options]{%number%}
-\complexnum{%number%}
-\complexqty[%<options%>]{%<number%>}{%<unit%>}
-\complexqty{%<number%>}{%<unit%>}
+\cm#*
+\complexnum{%<number%>}
+\complexnum[%<options%>]{%<number%>}
+\complexqty{number}{unit%formula}
+\complexqty[options%keyvals]{number}{unit%formula}
 \coulomb
 \cubed
 \cubic
 \dalton
-\day
 \dB#*
 \deca
 \deci
 \decibel
-\DeclareBinaryPrefix{%<prefix%>%cmd}{%<symbol%>}{%<power of 2%>}#d
-\DeclareSIPower{%<symbol before%>}{%<symbol after%>}{%<power%>}#d
-\DeclareSIPrefix{%<prefix%>%cmd}{%<symbol%>}{%<power of 10%>}#d
-\DeclareSIQualifier{%<qualifier%>}{%<symbol%>}#d
-\DeclareSIUnit[%<options%>]{%<unit%>%cmd}{%<symbol%>}#d
-\DeclareSIUnit{%<unit%>%cmd}{%<symbol%>}#d
+\DeclareSIPower{symbol-before%cmd}{symbol-after%cmd}{power}#d
+\DeclareSIPrefix{prefix macro%cmd}{symbol}{power of 10}#d
+\DeclareSIQualifier{qualifier%cmd}{symbol}#d
+\DeclareSIUnit[options%keyvals]{unit%cmd}{definition}#d
+\DeclareSIUnit{unit%cmd}{definition}#d
 \degreeCelsius
+\degree
 \deka
 \dm#*
 \electronvolt
-\ensuremath
 \eV#*
 \exa
 \exbi
@@ -55,6 +60,7 @@
 \femto
 \fF#*
 \fg#*
+\fH#*
 \fmol#*
 \fs#*
 \g#*
@@ -100,22 +106,26 @@
 \l#*
 \liter
 \litre
+\lumen
 \lux
 \m#*
 \mA#*
+\mC#*
 \mebi
 \mega
 \meter
 \metre
 \MeV#*
 \meV#*
+\mF#*
 \mg#*
-\mJ#*
+\mH#*
 \MHz#*
 \mHz#*
 \micro
 \milli
 \minute
+\mJ#*
 \mL#*
 \ml#*
 \mm#*
@@ -129,14 +139,17 @@
 \mp#*
 \MPa#*
 \ms#*
+\mT#*
 \mV#*
 \MW#*
 \mW#*
 \N#*
 \nA#*
 \nano
+\nC#*
 \neper
 \newton
+\nF#*
 \ng#*
 \nm#*
 \nmol#*
@@ -145,11 +158,13 @@
 \num{%<number%>}
 \numlist[%<options%>]{%<numbers%>}
 \numlist{%<numbers%>}
-\numproduct[%<options%>]{%<number%>}
+\numproduct[%<options%>]{%<numbers%>}
+\numproduct{%<numbers%>}
 \numrange[%<options%>]{%<number1%>}{%<number2%>}
 \numrange{%<number1%>}{%<number2%>}
 \nV#*
-\of
+\nW#*
+\of{text%plain}
 \ohm
 \Pa#*
 \pA#*
@@ -160,38 +175,37 @@
 \peta
 \pF#*
 \pg#*
+\pH#*
 \pico
 \pm#*
 \pmol#*
 \ps#*
 \pV#*
-\qty[%<options%>]{%<number%>}{%<unit%>}
-\qty{%<number%>}{%<unit%>}
-\qtylist{%<numbers%>}{%<unit%>}
-\qtylist[%<options%>]{%<numbers%>}{%<unit%>}
-\qtyrange{%<number1%>}{%<number2%>}{%<unit%>}
-\qtyrange[%<options%>]{%<number1%>}{%<number2%>}{%<unit%>}
-\qtyproduct[%<options%>]{%<number%>}{%<unit%>}
+\qty[options%keyvals]{number}{unit%formula}
+\qty{number}{unit%formula}
+\qtylist[options%keyvals]{numbers}{unit%formula}
+\qtylist{numbers}{unit%formula}
+\qtyproduct[options%keyvals]{numbers}{unit%formula}
+\qtyproduct{numbers}{unit%formula}
+\qtyrange[options%keyvals]{number1}{number2}{unit%formula}
+\qtyrange{number1}{number2}{unit%formula}
+\quecto
+\quetta
 \radian
 \raiseto{%<power%>}
+\ronna
+\ronto
 \s#*
 \second
-\SendSettingsToPgf
-\SI[%<options%>]{%<number%>}{%<unit%>}#S
-\SI{%<number%>}{%<unit%>}#S
-\si[%<options%>]{%<unit%>}#S
-\si{%<unit%>}#S
 \siemens
 \sievert
-\SIlist{%<numbers%>}{%<unit%>}#S
-\SIlist[%<options%>]{%<numbers%>}{%<unit%>}#S
-\SIrange{%<number1%>}{%<number2%>}{%<unit%>}#S
-\SIrange[%<options%>]{%<number1%>}{%<number2%>}{%<unit%>}#S
 \sisetup{%<options%>}
 \square
 \squared
 \steradian
-\tablenum[%<options%>]{%<number%>}
+\T#*
+\tablenum{%<number%>}#t
+\tablenum[%<options%>]{%<number%>}#t
 \tebi
 \tera
 \tesla
@@ -200,15 +214,19 @@
 \tonne
 \tothe{%<power%>}
 \uA#*
+\uC#*
+\uF#*
 \ug#*
+\uH#*
 \uJ#*
 \uL#*
 \ul#*
-\unit[%<options%>]{%<unit%>}
-\unit{%<unit%>}
 \um#*
 \umol#*
+\unit[options%keyvals]{unit%formula}
+\unit{unit%formula}
 \us#*
+\uT#*
 \uV#*
 \uW#*
 \V#*
@@ -222,170 +240,417 @@
 \zebi
 \zepto
 \zetta
+
+# deprecated
+\angstrom#S
+\atomicmassunit#S
+\bar#S
+\barn#S
+\bohr#S
+\celsius#S
+\clight#S
+\DeclareBinaryPrefix{prefix macro%cmd}{symbol}{power of 2}#*d
+\DeclareSIPostPower{power macro%cmd}{number}#*d
+\DeclareSIPrePower{power macro%cmd}{number}#*d
+\electronmass#S
+\elementarycharge#S
+\hartree#S
+\knot#S
+\mmHg#S
+\nauticalmile#S
+\planckbar#S
+\SendSettingsToPgf#S
+\SI[options%keyvals]{value}[pre-unit%formula]{unit commands%formula}#*
+\SI[options%keyvals]{value}{unit commands%formula}#*
+\SI{value}[pre-unit%formula]{unit commands%formula}#*
+\SI{value}{unit commands%formula}#*
+\si[options%keyvals]{unit%formula}#*
+\si{unit%formula}#*
+\SIlist{values}{unit commands%formula}#*
+\SIlist[options%keyvals]{values}{unit commands%formula}#*
+\SIrange{value1}{value2}{unit commands%formula}#*
+\SIrange[options%keyvals]{value1}{value2}{unit commands%formula}#*
+\SIUnitSymbolAngstrom#S
+\SIUnitSymbolArcminute#S
+\SIUnitSymbolArcsecond#S
+\SIUnitSymbolCelsius#S
+\SIUnitSymbolDegree#S
+\SIUnitSymbolMicro#S
+\SIUnitSymbolOhm#S
+
 # Options
-## Printing ; section 4.2
-#keyvals:\sisetup,\ang,\complexnum,\complexqty,\DeclareSIUnit,\num,\numlist,\numrange,\numproduct,\SI,\SIlist,\SIrange,\qty,\qtylist,\qtyproduct,\qtyrange
-color=
+## 4.2 Printing
+#keyvals:\sisetup,\ang,\complexnum,\complexqty,\DeclareSIUnit,\num,\numlist,\numproduct,\numrange,\qty,\qtylist,\qtyproduct,\qtyrange,\tablenum,\unit,\SI,\si,\SIlist,\SIrange
+color=#%color
 mode=#match,math,text
-number-color=
-number-mode#match,math,text
+number-color=#%color
+number-mode=#match,math,text
 propagate-math-font#true,false
 reset-math-version#true,false
 reset-text-family#true,false
 reset-text-series#true,false
 reset-text-shape#true,false
 text-family-to-math#true,false
-text-font-command=
+text-subscript-command=%<command%>
+text-superscript-command=%<command%>
+text-font-command=%<commands%>
 text-series-to-math#true,false
-unit-color=
+unit-color=#%color
 unit-mode=#match,math,text
 #endkeyvals
-## Parsing numbers ; section 4.3
-#keyvals:\sisetup,\ang,\complexnum,\complexqty,\num,\numlist,\numrange,\numproduct,\SI,\SIlist,\SIrange,\qty,\qtylist,\qtyproduct,\qtyrange
-evaluate-expression#false,true
-expression=
-input-close-uncertainty=
-input-comparators=
-input-decimal-markers=
-input-digits=
-input-exponent-markers=
-input-ignore=
-input-open-uncertainty=
-input-signs=
-input-uncertainty-signs=
+
+## 4.3 Parsing numbers
+#keyvals:\sisetup,\ang,\complexnum,\complexqty,\DeclareSIUnit,\num,\numlist,\numproduct,\numrange,\qty,\qtylist,\qtyproduct,\qtyrange,\tablenum,\SI,\si,\SIlist,\SIrange
+evaluate-expression#true,false
+expression=%<expression%>
+input-close-uncertainty=%<symbols%>
+input-comparators=%<symbols%>
+input-decimal-markers=%<symbols%>
+input-digits=%<symbols%>
+input-exponent-markers=%<symbols%>
+input-ignore=%<symbols%>
+input-open-uncertainty=%<symbols%>
+input-signs=%<symbols%>
+input-uncertainty-divider=%<symbol%>
+input-uncertainty-signs=%<symbols%>
 parse-numbers#true,false
+retain-explicit-decimal-marker#true,false
 retain-explicit-plus#true,false
+retain-negative-zero#true,false
 retain-zero-uncertainty#true,false
 #endkeyvals
-## Post-processing numbers ; section 4.4
-#keyvals:\sisetup,\ang,\complexnum,\complexqty,\num,\numlist,\numrange,\numproduct,\SI,\SIlist,\SIrange,\qty,\qtylist,\qtyproduct,\qtyrange
+
+# following math commands allowed in arg of \num etc.; listed here so not marked invalid
+\ll
+\gg
+\le
+\ge
+
+## 4.4 Post-processing numbers
+#keyvals:\sisetup,\ang,\complexnum,\complexqty,\DeclareSIUnit,\num,\numlist,\numproduct,\numrange,\qty,\qtylist,\qtyproduct,\qtyrange,\tablenum,\SI,\si,\SIlist,\SIrange
 drop-exponent#true,false
 drop-uncertainty#true,false
 drop-zero-decimal#true,false
-exponent-mode#input,fixed,engineering,scientific
-fixed-exponent=
-minimum-integer-digits=
-minimum-decimal-digits=
+exponent-mode=#input,fixed,engineering,scientific,threshold
+exponent-thresholds=%<min:max%>
+fixed-exponent=%<integer%>
+minimum-integer-digits=%<integer%>
+minimum-decimal-digits=%<integer%>
+round-direction=#nearest,up,down
 round-half=#up,even
-round-minimum=
+round-minimum=%<number%>
 round-mode=#none,figures,places,uncertainty
 round-pad#true,false
-round-precision=
+round-precision=%<integer%>
+round-zero-positive#true,false
+uncertainty-round-direction=#nearest,up,down
 #endkeyvals
-## Printing numbers ; section 4.5
-#keyvals:\sisetup,\ang,\complexnum,\complexqty,\num,\numlist,\numrange,\numproduct,\SI,\SIlist,\SIrange,\qty,\qtylist,\qtyproduct,\qtyrange
+
+## 4.5 Printing numbers
+#keyvals:\sisetup,\ang,\complexnum,\complexqty,\DeclareSIUnit,\num,\numlist,\numproduct,\numrange,\qty,\qtylist,\qtyproduct,\qtyrange,\tablenum,\SI,\si,\SIlist,\SIrange
+allow-uncertainty-breaks#true,false
+bracket-ambiguous-numbers#true,false
 bracket-negative-numbers#true,false
-exponent-base=
-exponent-product=
-group-digits=#all,decimal,integer,none
-group-minimum-digits=
-group-separator=
-negative-color=
-output-close-uncertainty=
-output-decimal-marker=
-output-exponent-marker=
-output-open-uncertainty=
+digit-group-size=%<integer%>
+digit-group-first-size=%<integer%>
+digit-group-other-size=%<integer%>
+exponent-base=%<value%>
+exponent-product=%<symbol%>
+group-digits=#none,decimal,integer
+group-minimum-digits=%<integer%>
+group-separator=%<separator%>
+negative-color=#%color
+output-close-uncertainty=%<symbol%>
+output-decimal-marker=%<symbol%>
+output-exponent-marker=%<symbol%>
+output-open-uncertainty=%<symbol%>
+print-exponent-implicit-plus#true,false
 print-implicit-plus#true,false
+print-mantissa-implicit-plus#true,false
 print-unity-mantissa#true,false
 print-zero-exponent#true,false
+print-zero-integer#true,false
+separate-uncertainty#true,false
+simplify-uncertainty#true,false
 tight-spacing#true,false
-uncertainty-mode=#compact,compact-marker,full,separate
-uncertainty-separator=
+uncertainty-descriptor-mode=#bracket,bracket-separator,separator,subscript
+uncertainty-descriptor-separator=%<separator%>
+uncertainty-descriptors={%<desc1,desc2,...%>}
+uncertainty-mode=#separate,compact,compact-marker,full
+uncertainty-separator=%<separator%>
+zero-decimal-as-symbol#true,false
+zero-symbol=%<symbol%>
 #endkeyvals
-## Lists, products, and ranges ; section 4.6
-#keyvals:\sisetup,\numlist,\SIlist,\qtylist
-list-exponents=#combine,combine-bracket,individual
-list-final-separator=
-list-pair-separator=
-list-separator=
+
+## 4.6 Lists, products and ranges
+#keyvals:\sisetup,\numlist,\qtylist,\SIlist
+list-close-bracket=%<symbol%>
+list-exponents=#individual,combine-bracket,combine
+list-final-separator=%<separator%>
+list-independent-prefix#true,false
+list-open-bracket=%<symbol%>
+list-pair-separator=%<separator%>
+list-separator=%<separator%>
+list-units=#bracket,repeat,single
 #endkeyvals
-#keyvals:\sisetup,\SIlist,\qtylist
-list-units=#bracket,repeat,symbol
-#endkeyvals
+
 #keyvals:\sisetup,\numproduct,\qtyproduct
-product-exponents=#combine,combine-bracket,individual
+product-close-bracket=%<symbol%>
+product-exponents=#individual,combine-bracket,combine
+product-independent-prefix#true,false
 product-mode=#symbol,phrase
-product-phrase=
-product-symbol=
+product-open-bracket=%<symbol%>
+product-phrase=%<text%>
+product-symbol=%<symbol%>
+product-units=#bracket,bracket-power,power,repeat,single
 #endkeyvals
-#keyvals:\sisetup,\qtyproduct
-product-units=#bracket,repeat,symbol
+
+#keyvals:\sisetup,\numrange,\qtyrange,\SIrange
+range-close-bracket=%<symbol%>
+range-exponents=#individual,combine-bracket,combine
+range-independent-prefix#true,false
+range-open-bracket=%<symbol%>
+range-open-phrase=%<symbol%>
+range-phrase=%<text%>
+range-units=#bracket,repeat,single
 #endkeyvals
-#keyvals:\sisetup,\numrange,\SIrange,\qtyrange
-range-exponents=#combine,combine-bracket,individual
-range-phrase=
-#endkeyvals
-#keyvals:\sisetup,\SIrange,\qtyrange
-range-units=#bracket,repeat,symbol
-#endkeyvals
-## Complex numbers ; section 4.7
+
+## 4.7 Complex numbers
 #keyvals:\sisetup,\complexnum,\complexqty
+complex-angle-unit=#degrees,radians
+complex-mode=#cartesian,polar,input
+complex-phase-command=%<command%>
 complex-root-position=#after-number,before-number
-input-complex-root=#i,j
-output-complex-root=
+complex-symbol-degree=%<symbol%>
+input-complex-root=%<tokens%>
+output-complex-root=%<symbol%>
+print-complex-unity#true,false
 #endkeyvals
-## Angles ; section 4.8
+
+## 4.8 Angles
 #keyvals:\sisetup,\ang
-angle-mode=#arc,decimal,input
-angle-symbol-degree=
-angle-symbol-minute=
+angle-mode=#arc,decimal
+angle-symbol-degree=%<symbol%>
+angle-symbol-minute=%<symbol%>
 angle-symbol-over-decimal#true,false
-angle-symbol-second=
-angle-separator=
+angle-symbol-second=%<symbol%>
+angle-separator=%<separator%>
 fill-angle-degrees#true,false
 fill-angle-minutes#true,false
 fill-angle-seconds#true,false
-number-angle-product=
 #endkeyvals
-## Creating units ; section 4.9
-#keyvals:\sisetup,\DeclareSIUnit
+
+## 4.9 Creating units
+#keyvals:\sisetup
 free-standing-units#true,false
-overwrite-command#true,false
+overwrite-functions#true,false
 space-before-unit#true,false
 unit-optional-argument#true,false
 use-xspace#true,false
 #endkeyvals
-## Using units ; section 4.10
-#keyvals:\sisetup,\complexqty,\SI,\si,\SIlist,\SIrange,\qty,\qtylist,\qtyrange,\qtyproduct,\unit
+
+## 4.10 Using units
+#keyvals:\sisetup,\DeclareSIUnit,\qty,\qtylist,\qtyproduct,\qtyrange,\unit,\si
 bracket-unit-denominator#true,false
 forbid-literal-units#true,false
-inter-unit-product=
+fraction-command=%<command%>
+inter-unit-product=%<separator%>
 parse-units#true,false
-per-mode=#fraction,power,power-positive-first,symbol,symbol-or-fraction,repeated-symbol
-per-symbol=
-qualifier-mode=#bracket,combine,phrase,subscript
-qualifier-phrase=
+per-mode=#fraction,power,power-positive-first,repeated-symbol,symbol,single-symbol
+display-per-mode=#fraction,power,power-positive-first,repeated-symbol,symbol,single-symbol
+inline-per-mode=#fraction,power,power-positive-first,repeated-symbol,symbol,single-symbol
+per-symbol-script-correction=%<separator%>
+per-symbol=%<symbol%>
+power-half-as-sqrt#true,false
+qualifier-mode=#subscript,bracket,combine,phrase
+qualifier-phrase=%<text%>
 sticky-per#true,false
-unit-font-command=
+unit-font-command=%<command%>
 #endkeyvals
-## Quantities ; section 4.11
-#keyvals:\sisetup,\SI,\SIlist,\SIrange,\qty,\qtylist,\qtyproduct,\qtyrange,\complexqty
+
+## 4.11 Quantities
+#keyvals:\sisetup,\DeclareSIUnit,\qty,\qtylist,\qtyproduct,\qtyrange,\SI,\SIlist,\SIrange
 allow-quantity-breaks#true,false
 extract-mass-in-kilograms#true,false
-prefix-mode=#combine-exponent,extract-exponent,input
-quantity-product=
+prefix-mode=#input,combine-exponent,extract-exponent
+quantity-product=%<symbol%>
 separate-uncertainty-units=#bracket,repeat,single
-## Tabular material ; section 4.12
-#keyvals:\sisetup
+#endkeyvals
+
+## 4.12 Tabular material
+#keyvals:\sisetup,\tablenum
 table-align-comparator#true,false
 table-align-exponent#true,false
 table-align-text-after#true,false
 table-align-text-before#true,false
-table-align-uncertainty Switch true
+table-align-uncertainty#true,false
 table-alignment=#left,center,right
-table-alignment-mode=#format,marker,none
+table-alignment-mode=#marker,format,none
 table-auto-round#true,false
-table-column-width=
-table-fixed-width#true,false
-table-format=
+table-column-width=##L
+table-fixed-width=##L
+table-format=%<format value%>
+table-model-setup=%<commands%>
 table-number-alignment=#left,center,right
-table-text-alignment=#left,center,right
+table-text-alignment=#left,center,right,none
 #endkeyvals
-## Locale options ; section 4.13
-#keyvals:\sisetup,\ang,\complexnum,\complexqty,\num,\numlist,\numrange,\SI,\si,\SIlist,\SIrange,\qty,\qtylist,\qtyrange,\qtyproduct,\unit
+
+## 4.13 Locale options
+#keyvals:\sisetup,\ang,\complexnum,\complexqty,\DeclareSIUnit,\num,\numlist,\numproduct,\numrange,\qty,\qtylist,\qtyproduct,\qtyrange,\tablenum,\unit,\SI,\si,\SIlist,\SIrange
 locale=#DE,UK,US,ZA,FR
 #endkeyvals
-## Preamble-only options
+
+## 4.14 Preamble-only options
 #keyvals:\sisetup
-table-column-type=
+list-input-separator=%<separator%>
+product-input-separator=%<separator%>
+table-column-type=%<tokens%>
+#endkeyvals
+
+## (deprecated) Detecting Fonts ; section 5.2
+#keyvals:\sisetup
+detect-all
+detect-display-math#true,false
+detect-family#true,false
+detect-inline-family=#text,math
+detect-inline-weight=#text,math
+detect-mode#true,false
+detect-none
+detect-shape#true,false
+detect-weight#true,false
+#endkeyvals
+
+## (deprecated) Font settings ; section 5.3
+#keyvals:\sisetup,\ang,\DeclareSIUnit,\num,\numlist,\numrange,\SI,\si,\SIlist,\SIrange
+math-rm=
+math-sf=
+math-tt=
+text-rm=
+text-sf=
+text-tt=
+text-tt=
+#endkeyvals
+
+## (deprecated) Font settings ; section 5.3 ; with "number-"
+#keyvals:\sisetup,\ang,\DeclareSIUnit,\num,\numlist,\numrange,\SI,\SIlist,\SIrange
+number-math-rm=
+number-math-sf=
+number-math-tt=
+number-text-rm=
+number-text-sf=
+number-text-tt=
+#endkeyvals
+
+## (deprecated) Font settings ; section 5.3 ; with "unit-"
+#keyvals:\sisetup,\ang,\DeclareSIUnit,\SI,\si,\SIlist,\SIrange
+unit-math-rm=
+unit-math-sf=
+unit-math-tt=
+unit-text-rm=
+unit-text-sf=
+unit-text-tt=
+#endkeyvals
+
+## (deprecated) Parsing numbers ; section 5.4
+#keyvals:\sisetup,\ang,\DeclareSIUnit,\num,\numlist,\numrange,\SI,\SIlist,\SIrange
+input-protect-tokens=
+input-symbols=
+#endkeyvals
+
+## (deprecated) Post-processing numbers ; section 5.5
+#keyvals:\sisetup,\ang,\DeclareSIUnit,\num,\numlist,\numrange,\SI,\SIlist,\SIrange
+add-decimal-zero#true,false
+add-integer-zero#true,false
+explicit-sign=
+omit-uncertainty#true,false
+retain-unity-mantissa#true,false
+retain-zero-exponent#true,false
+round-integer-to-decimal#true,false
+scientific-notation=#true,false,fixed,engineering
+zero-decimal-to-integer#true,false
+#endkeyvals
+
+## (deprecated) Printing numbers ; section 5.6
+#keyvals:\sisetup,\ang,\DeclareSIUnit,\num,\numlist,\numrange,\SI,\SIlist,\SIrange
+bracket-numbers#true,false
+close-bracket=
+copy-complex-root=
+copy-decimal-marker=
+open-bracket=
+#endkeyvals
+
+## (deprecated) Multi-part numbers ; section 5.7
+#keyvals:\sisetup,\DeclareSIUnit,\num,\numlist,\SI,\SIlist
+fraction-function=
+input-product=
+input-quotient=
+output-product=
+output-quotient=
+quotient-mode=#symbol,fraction
+#endkeyvals
+
+## (deprecated) Angles ; section 5.9
+#keyvals:\sisetup,\ang
+add-arc-degree-zero#true,false
+add-arc-minute-zero#true,false
+add-arc-second-zero#true,false
+arc-separator=
+#endkeyvals
+
+## (deprecated) Using units ; section 5.12
+#keyvals:\sisetup,\DeclareSIUnit,\SI,\si,\SIlist,\SIrange
+literal-superscript-as-power#true,false
+power-font=#number,unit
+prefixes-as-symbols#true,false
+#endkeyvals
+
+## (deprecated) Numbers with units ; section 5.13
+#keyvals:\sisetup,\DeclareSIUnit,\SI,\SIlist,\SIrange
+allow-number-unit-breaks#true,false
+exponent-to-prefix#true,false
+number-unit-product=
+#endkeyvals
+
+#keyvals:\sisetup,\DeclareSIUnit,\SI,\SIlist
+multi-part-units=#brackets,repeat,single
+#endkeyvals
+
+## (deprecated) Tabular material ; section 5.14
+#keyvals:\sisetup,\DeclareSIUnit
+table-align-text-pre#true,false
+table-align-text-post#true,false
+table-comparator#true,false
+table-figures-decimal=
+table-figures-exponent=
+table-figures-integer=
+table-figures-uncertainty=
+table-parse-only#true,false
+table-omit-exponent#true,false
+table-space-text-pre=
+table-space-text-post=
+table-sign-exponent#true,false
+table-sign-mantissa#true,false
+table-unit-alignment=#center,right,left
+#endkeyvals
+
+## (deprecated) Symbols ; section 5.15
+#keyvals:\sisetup,\DeclareSIUnit,\SI,\si,\SIlist,\SIrange
+math-angstrom=
+math-celsius=
+math-micro=
+math-ohm=
+text-angstrom=
+text-celsius=
+text-micro=
+text-ohm=
+#endkeyvals
+
+#keyvals:\sisetup,\ang,\DeclareSIUnit,\SI,\si,\SIlist,\SIrange
+math-arcminute=
+math-arcsecond=
+math-degree=
+redefine-symbols#true,false
+text-arcminute=
+text-arcsecond=
+text-degree=
 #endkeyvals

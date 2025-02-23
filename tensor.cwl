@@ -1,10 +1,24 @@
-# tensor 
-# https://ctan.org/pkg/tensor
+# tensor package
+# Matthew Bertucci 2023/07/18 for v2.2
 
-\indices{indices}
-\indices*{indices}
-\tensor{tensor}{indices}
-\tensor*{tensor}{indices}
-\tensor[indices]{tensor}{indices}
-\tensor*[indices]{tensor}{indices}
-\nuclide[mass][atomic]{symbol}
+#keyvals:\usepackage/tensor#c
+align
+text
+nosmash
+nostrut
+#endkeyvals
+
+\indices{%<^sup1_sub1^sup2_sub2...%>}#m
+\indices*{%<^sup1_sub1^sup2_sub2...%>}#m
+\tensor{%<symbol%>}{%<^sup1_sub1^sup2_sub2...%>}#m
+\tensor[%<pre-indices%>]{%<symbol%>}{%<^sup1_sub1^sup2_sub2...%>}#m
+\tensor*{%<symbol%>}{%<^sup1_sub1^sup2_sub2...%>}#m
+\tensor*[%<pre-indices%>]{%<symbol%>}{%<^sup1_sub1^sup2_sub2...%>}#m
+\indexmarker#*
+\nuclide{symbol%formula}
+\nuclide[mass no%formula]{symbol%formula}
+\nuclide[mass no%formula][atomic no%formula]{symbol%formula}
+\nuclideFont#*
+\massnumFont#*
+\tensorSmash#*
+\tensorStrut#*
